@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\DiscountCodesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//No authentication is added around the endpoint due to task scope
+Route::post('/discountCodes/create',[DiscountCodesController::Class,'createNewDiscountCodes']);
+Route::post('/discountCodes/getCodeForUser/',[DiscountCodesController::Class,'connectCodeToUser']);
